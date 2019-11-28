@@ -1,0 +1,25 @@
+{
+    "name": "swag/testplugin",
+    "description": "",
+    "version": "0.12.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shopware AG"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TestPlugin\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "TestPlugin\\TestPlugin",
+        "copyright": "(c) by shopware AG",
+        "label": {
+            "de-DE": "Different test cases",
+            "en-GB": "Different test cases"
+        }
+    }
+}
