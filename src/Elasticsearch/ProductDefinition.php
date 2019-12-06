@@ -32,6 +32,12 @@ class ProductDefinition extends ElasticsearchProductDefinition
         return $this->decorated->getMapping($context);
     }
 
+    public function convertDocument(array $document, Entity $entity): array
+    {
+        return $this->decorated->convertDocument($document, $entity);
+    }
+
+
     public function extendCriteria(Criteria $criteria): void
     {
         $this->decorated->extendCriteria($criteria);
@@ -39,11 +45,6 @@ class ProductDefinition extends ElasticsearchProductDefinition
 
     public function buildFullText(Entity $entity): FullText
     {
-        $fullText = $this->decorated->buildFullText($entity);
-
-        dd($fullText);
-
-        return $fullText;
+        return $this->decorated->buildFullText($entity);
     }
-
 }

@@ -8,5 +8,17 @@
         <service id="TestPlugin\Elasticsearch\ProductDefinition" decorates="Shopware\Elasticsearch\Product\ElasticsearchProductDefinition">
             <argument id="TestPlugin\Elasticsearch\ProductDefinition.inner" type="service"/>
         </service>
+
+        <service id="TestPlugin\Elasticsearch\MyIndexer">
+            <argument id="Shopware\Elasticsearch\Product\ElasticsearchProductDefinition" type="service"/>
+            <argument id="product.repository" type="service"/>
+        </service>
+
+        <service id="TestPlugin\Command\MyEsIndexCommand">
+            <argument type="service" id="TestPlugin\Elasticsearch\MyIndexer" />
+            <tag name="kernel.event_subscriber"/>
+            <tag name="console.command"/>
+        </service>
+
     </services>
 </container>
